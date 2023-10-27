@@ -39,7 +39,7 @@ group.add_argument('-l', '--domain-list', help='The path to the file containing 
 args = parser.parse_args()
 
 # Shodan API key
-api_key = 'alfB2C3dPq1VweKB37XucrLdSMuMvfYH'
+api_key = 'your_api_key'
 
 # Get the IPs for the domain(s)
 if args.domain:
