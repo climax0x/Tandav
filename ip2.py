@@ -39,7 +39,7 @@ group.add_argument('-l', '--domain-list', help='The path to the file containing 
 args = parser.parse_args()
 
 # Shodan API key
-api_key = 'WcgiEiAAIivy8lK6MTxrmkrpxVZ3mvLm'
+api_key = 'alfB2C3dPq1VweKB37XucrLdSMuMvfYH'
 
 # Get the IPs for the domain(s)
 if args.domain:
@@ -51,7 +51,10 @@ else:
 all_ips = []
 for domain in domains:
     ips = get_ips(api_key, domain)
-    all_ips.extend(ips)
+
+    # Add a check to skip None values
+    if ips is not None:
+        all_ips.extend(ips)
 
 # Remove duplicates
 unique_ips = list(set(all_ips))
